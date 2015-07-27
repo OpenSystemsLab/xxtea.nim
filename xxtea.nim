@@ -1,10 +1,10 @@
-{.compile: "libxxtea.c".}
+{.compile: "lib/xxtea.c".}
 
 import base64
 
-proc encrypt*(data: cstring, length: csize, key: cstring, outLen: ptr int): cstring {.cdecl, importc: "xxtea_encrypt", header: "../libxxtea.h".}
+proc encrypt*(data: cstring, length: csize, key: cstring, outLen: ptr int): cstring {.cdecl, importc: "xxtea_encrypt", header: "../lib/xxtea.h".}
   ## Low-level wrapper for xxtea_encrypt function
-proc decrypt*(data: cstring, length: csize, key: cstring, outLen: ptr int): cstring {.cdecl, importc: "xxtea_decrypt", header: "../libxxtea.h".}
+proc decrypt*(data: cstring, length: csize, key: cstring, outLen: ptr int): cstring {.cdecl, importc: "xxtea_decrypt", header: "../lib/xxtea.h".}
   ## Low-level wrapper for xxtea_decrypt function
 
 proc encrypt*(data, key: string): string {.inline.} =
